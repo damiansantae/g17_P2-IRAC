@@ -9,17 +9,10 @@ const PORT = process.env.PORT || 3000;
 const INDEX = path.join(__dirname,'client', 'index.html');
 
 
-
-//Importamos las rutas
-var routes = require('./routes');
-
-
 const server = express()
     .use((req, res) => res.sendFile(INDEX) )
 .listen(PORT, () => console.log('Listening on ${ PORT }'));
 
-
-server.use(express.static( __dirname +'/client'));
 
 const io = socketIO(server);
 
