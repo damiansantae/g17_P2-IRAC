@@ -1,40 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8"/>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-metro.css">
-	<title>Very simple WebRTC application with a Node.js signalling server</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-metro.css">
+    <title>Very simple WebRTC application with a Node.js signalling server</title>
 </head>
 <body>
 <div class="w3-container w3-card-2 w3-metro-teal " style="z-index: 10">
-	<h1><b>Grupo 17</b></h1>
+    <h1><b>Grupo 17</b></h1>
 </div>
 <div id="one" class="w3-black" style="height: 1px">
-	<div class="cont col-1 w3-card-4 w3-dark-gray">
-		<div class="w3-card-2 w3-padding-16">
-			<h3 class="w3-opacity">Local video</h3>
-		</div>
-		<div>
-			<div>
-				<video id="localVideo" muted autoplay class="w3-image w3-display-middle" style="width:100%"></video>
-			</div>
+    <div class="cont col-1 w3-card-4 w3-dark-gray">
+        <div class="w3-card-2 w3-padding-16">
+            <h3 class="w3-opacity">Local video</h3>
+        </div>
+        <div>
+            <div>
+                <video id="localVideo" muted autoplay class="w3-image w3-display-middle" style="width:100%"></video>
+            </div>
+            <table>
+                <tr>
+                    <td align="center">
+                <textarea rows="4" cols="60" id="dataChannelSend" disabled
+                          placeholder="This will be enabled once the data channel is up..."></textarea>
+                    </td>
+                    <td align="center">
+                        <textarea rows="4" cols="60" id="dataChannelReceive" disabled></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <button id="sendButton" disabled>Send</button>
+                    </td>
+                    <td></td>
+            </table>
+            <!--<div id="overlay" class="w3-card-4 w3-white w3 w3-display-bottomleft">
+                <iframe id="chat" src="./msg_box.html" width="300"></iframe>
+            </div>-->
 
-			<div id="overlay" class="w3-card-4 w3-white w3 w3-display-bottomleft">
-				<iframe id="chat" src="./msg_box.html" width="300"></iframe>
-			</div>
-
-		</div>
-	</div>
-	<div class="cont col-2 w3-card-4 w3-dark-gray">
-		<div class="w3-card-2 w3-padding-16">
-			<h3 class="w3-opacity">Remote video</h3>
-		</div>
-		<div>
-			<video id="remoteVideo" autoplay class="w3-image w3-display-middle" style="width:100%"></video>
-		</div>
-	</div>
+        </div>
+    </div>
+    <div class="cont col-2 w3-card-4 w3-dark-gray">
+        <div class="w3-card-2 w3-padding-16">
+            <h3 class="w3-opacity">Remote video</h3>
+        </div>
+        <div>
+            <video id="remoteVideo" autoplay class="w3-image w3-display-middle" style="width:100%"></video>
+        </div>
+    </div>
 </div>
 
 
