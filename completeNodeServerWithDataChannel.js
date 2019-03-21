@@ -1,26 +1,25 @@
+'use strict';
+
 var express = require('express');
 var socketIO = require('socket.io');
+const path = require('path');
 
-const server = express();
 
-server.use(express.static( __dirname +'/client'))
+const PORT = process.env.PORT || 3000;
+const INDEX = path.join(__dirname,'client', 'index.html');
+
+
 
 //Importamos las rutas
 var routes = require('./routes');
 
-//Cargamos las rutas
-server.use('', routes)
 
-//Asignamos al atributo 'port' un valor
-server.set('port', (process.env.PORT || 8080));
-
+const server = express()
+    .use((req, res) => res.sendFile(INDEX) )
+.listen(PORT, () => console.log('Listening on ${ PORT }'));
 
 
-server.use((req, res) => res.sendFile(INDEX))
-.listen(server.get('port'), () =>  {
-    console.log("Servidor ejecutandose en :" + server.get('port'))
-})
-
+server.use(express.static( __dirname +'/client'));
 
 const io = socketIO(server);
 
