@@ -1,6 +1,5 @@
 
-
-body{
+body {
     margin: 0;
     padding: 0;
     background-color: black;
@@ -15,33 +14,38 @@ body{
     perspective: 3000px;
     overflow: auto;
 }
-.col-1{
+
+.col-1 {
 }
 
-.col-2{
+.col-2 {
 }
-#overlay{
+
+#overlay {
     opacity: 0.05;
     z-index: 12;
     background-color: transparent;
 }
 
-#overlay:hover{
+#overlay:hover {
     opacity: 1.0;
 
 }
 
 @media only screen and (max-width: 1000px) {
-    .col-1{
+    .col-1 {
         width: 100%;
     }
-    .col-2{
+
+    .col-2 {
         width: 100%;
     }
 }
 
-#one > .cont { height:92vh; }
+#one > .cont {
+    height: 92vh;
+}
 
 td {
-text-align:left;
+    text-align: left;
 }

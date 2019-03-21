@@ -4,15 +4,13 @@ var express = require('express');
 var socketIO = require('socket.io');
 const path = require('path');
 
-
 const PORT = process.env.PORT || 3000;
 const INDEX = path.join(__dirname, 'client', 'index.html');
-
-
 const app = express();
 app.use(express.static(__dirname + '/client'));
 const server =    app.use((req, res) => res.sendFile(INDEX))
     .listen(PORT, () => console.log('Listening on ${PORT}'));
+
 const io = socketIO(server);
 
 // Let's start managing connections...
@@ -51,6 +49,4 @@ io.on('connection', function (socket) {
 
 });
 
-
-module.exports = server;
 

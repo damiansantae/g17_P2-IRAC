@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-metro.css">
-    <title>Very simple WebRTC application with a Node.js signalling server</title>
+    <title>G17-P2IRAC</title>
 </head>
 <body>
 <div class="w3-container w3-card-2 w3-metro-teal " style="z-index: 10">
@@ -17,106 +17,16 @@
             <h3 class="w3-opacity">Local video</h3>
         </div>
         <div class="w3-card-2">
-            <div class="w3-card-2"   style="max-height: 90%; overflow-y: auto;">
-                <video id="localVideo" muted autoplay class="w3-image w3-display-middle" style="width:100%"></video>
+            <div class="w3-card-2" style="max-height: 90%; overflow-y: auto;">
+                <video id="localVideo" muted autoplay class="w3-image w3-display-middle"
+                       style="max-height: 90%; width:100%"></video>
             </div>
             <div id="overlay" class="w3-card-4 w3-white w3-display-bottomleft"
-                 style="max-height: 90%; overflow-y: auto; min-height: 25%; width: 25%; max-width: 25%; overflow-x: auto" >
-                <table >
+                 style="max-height: 90%; overflow-y: auto; min-height: 25%; width: 25%; max-width: 25%; overflow-x: auto">
+                <table>
                     <tr>
                         <td>
                             <div id="dataChannelReceive">
-                                <!-- <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>
-                                 <p><strong>Remote: </strong></p>-->
                             </div>
                         </td>
 
@@ -138,7 +48,7 @@
         <div class="w3-card-2 w3-padding-16">
             <h3 class="w3-opacity">Remote video</h3>
         </div>
-        <div class="w3-card-2"   style="max-height: 90%; overflow-y: auto;">
+        <div class="w3-card-2" style="max-height: 90%; overflow-y: auto;">
             <video id="remoteVideo" autoplay class="w3-image w3-display-middle" style="width:100%"></video>
         </div>
     </div>
