@@ -16,7 +16,9 @@ server.set('port', (process.env.PORT || 8080));
 
 
 server.use((req, res) => res.sendFile(INDEX))
-.listen(server.get('port'), () => console.log("Servidor ejecutandose en :" + server.get('port'));
+.listen(server.get('port'), () =>  {
+    console.log("Servidor ejecutandose en :" + server.get('port'))
+})
 
 
 const io = socketIO(server);
