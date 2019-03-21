@@ -4,13 +4,17 @@
 // collect garbage before unloading browser's window
 window.onbeforeunload = function(e){
   hangup();
-}
+};
 
 // Data channel information
 var sendChannel, receiveChannel;
-var sendButton = document.getElementById("sendButton");
-var sendTextarea = document.getElementById("dataChannelSend");
-var receiveTextarea = document.getElementById("dataChannelReceive");
+var iframe = document.getElementById('chat');
+
+var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+var sendTextarea = innerDoc.getElementById("dataChannelSend");
+var receiveTextarea = innerDoc.getElementById("dataChannelReceive");
+var sendButton = innerDoc.getElementById("sendButton");
+
 
 // HTML5 <video> elements
 var localVideo = document.querySelector('#localVideo');
@@ -81,6 +85,7 @@ var room = prompt('Enter room name:');
 var urlServer = location.origin;
 console.log("socket.io client connecting to server ", urlServer );
 // Connect to signalling server
+//TODO
 var socket = io();
 
 // Send 'Create or join' message to singnalling server
@@ -242,9 +247,15 @@ function createPeerConnection() {
 
 // Data channel management
 function sendData() {
+  //TODO
   var data = sendTextarea.value;
   if(isInitiator) sendChannel.send(data);
   else receiveChannel.send(data);
+
+    var parent = receiveTextarea;
+    var sent_msg = document.createElement("p");
+    sent_msg.innerHTML = "<strong>Tú: </strong>" + data + "";
+    parent.appendChild(sent_msg);
   trace('Sent data: ' + data);
 }
 
@@ -259,8 +270,12 @@ function gotReceiveChannel(event) {
 }
 
 function handleMessage(event) {
+  //TODO
   trace('Received message: ' + event.data);
-  receiveTextarea.value += event.data + '\n';
+    var parent = receiveTextarea;
+    var rcv_msg = document.createElement("p");
+    rcv_msg.innerHTML = "<strong>Remote: </strong>" + event.data + "";
+    parent.appendChild(rcv_msg);
 }
 
 function handleSendChannelStateChange() {
