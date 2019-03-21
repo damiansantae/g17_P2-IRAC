@@ -283,12 +283,13 @@ function handleSendChannelStateChange() {
   trace('Send channel state is: ' + readyState);
   // If channel ready, enable user's input
   if (readyState == "open") {
-    dataChannelSend.disabled = false;
-    dataChannelSend.focus();
-    dataChannelSend.placeholder = "";
+    //TODO: cambio data channel send por senTextarea
+      sendTextarea.disabled = false;
+      sendTextarea.focus();
+      sendTextarea.placeholder = "";
     sendButton.disabled = false;
   } else {
-    dataChannelSend.disabled = true;
+      sendTextarea.disabled = true;
     sendButton.disabled = true;
   }
 }
@@ -298,12 +299,13 @@ function handleReceiveChannelStateChange() {
   trace('Receive channel state is: ' + readyState);
   // If channel ready, enable user's input
   if (readyState == "open") {
-	    dataChannelSend.disabled = false;
-	    dataChannelSend.focus();
-	    dataChannelSend.placeholder = "";
+      //TODO: cambio data channel send por senTextarea
+      sendTextarea.disabled = false;
+      sendTextarea.focus();
+      sendTextarea.placeholder = "";
 	    sendButton.disabled = false;
 	  } else {
-	    dataChannelSend.disabled = true;
+      sendTextarea.disabled = true;
 	    sendButton.disabled = true;
 	  }
 }
