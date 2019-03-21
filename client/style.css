@@ -41,3 +41,7 @@ body{
 }
 
 #one > .cont { height:92vh; }
+
+#chat {
+    align-content: left;
+}
