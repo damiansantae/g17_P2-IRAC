@@ -10,11 +10,8 @@ const INDEX = path.join(__dirname,'client', 'index.html');
 
 
 const server = express();
-server.use((req, res) => res.sendFile(INDEX));
-
-
-server.use('/static', express.static('public'));
-server.listen(PORT, () => console.log('Listening on ${PORT}'));
+server.use((req, res) => res.sendFile(INDEX))
+.listen(PORT, () => console.log('Listening on ${PORT}'));
 
 
 const io = socketIO(server);
