@@ -6,25 +6,25 @@ const path = require('path');
 
 
 const PORT = process.env.PORT || 3000;
-const INDEX = path.join(__dirname,'client', 'index.html');
+const INDEX = path.join(__dirname, 'client', 'index.html');
 
 
 const server = express()
     .use((req, res) => res.sendFile(INDEX))
-.listen(PORT, () => console.log('Listening on ${PORT}'));
+    .listen(PORT, () => console.log('Listening on ${PORT}'));
 
-
+server.use(express.static(__dirname + '/client'));
 const io = socketIO(server);
 
 // Let's start managing connections...
-io.on('connection', function (socket){
+io.on('connection', function (socket) {
     socket.on('create or join', function (room) { // Handle 'create or join' messages
-        var numClients = io.sockets.adapter.rooms[room]?io.sockets.adapter.rooms[room].length:0;
+        var numClients = io.sockets.adapter.rooms[room] ? io.sockets.adapter.rooms[room].length : 0;
 
         console.log('S --> Room ' + room + ' has ' + numClients + ' client(s)');
         console.log('S --> Request to create or join room', room);
 
-        if(numClients == 0){ // First client joining...
+        if (numClients == 0) { // First client joining...
             socket.join(room);
             socket.emit('created', room);
         } else if (numClients == 1) { // Second client joining...
@@ -42,7 +42,7 @@ io.on('connection', function (socket){
         socket.broadcast.to(message.channel).emit('message', message);
     });
 
-    function log(){
+    function log() {
         var array = [">>> "];
         for (var i = 0; i < arguments.length; i++) {
             array.push(arguments[i]);
