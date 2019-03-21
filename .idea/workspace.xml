@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86bf7aaf-6b8f-432b-9ad0-bb8372e8bf8d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/completeNodeServerWithDataChannel.js" afterPath="$PROJECT_DIR$/completeNodeServerWithDataChannel.js" />
     </list>
@@ -22,8 +21,8 @@
       <file leaf-file-name="completeNodeServerWithDataChannel.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/completeNodeServerWithDataChannel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="313">
+              <caret line="31" column="21" lean-forward="true" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -178,9 +177,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>io.</find>
       <find>j</find>
       <find>socke</find>
+      <find>io.</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -294,12 +293,12 @@
       <option name="presentableId" value="Default" />
       <updated>1553095312147</updated>
       <workItem from="1553095313734" duration="9402000" />
-      <workItem from="1553173921546" duration="699000" />
+      <workItem from="1553173921546" duration="1267000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10101000" />
+    <option name="totallyTimeSpent" value="10669000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
@@ -604,8 +603,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/completeNodeServerWithDataChannel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="313">
+          <caret line="31" column="21" lean-forward="true" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
           <folding />
         </state>
       </provider>

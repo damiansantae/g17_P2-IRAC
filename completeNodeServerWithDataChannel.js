@@ -19,7 +19,7 @@ const io = socketIO(server);
 // Let's start managing connections...
 io.on('connection', function (socket){
     socket.on('create or join', function (room) { // Handle 'create or join' messages
-        var numClients = io.adapter.rooms[room]?io.adapter.rooms[room].length:0;
+        var numClients = io.sockets.adapter.rooms[room]?io.sockets.adapter.rooms[room].length:0;
 
         console.log('S --> Room ' + room + ' has ' + numClients + ' client(s)');
         console.log('S --> Request to create or join room', room);
