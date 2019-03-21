@@ -19,8 +19,8 @@
       <file leaf-file-name="completeNodeClientWithDataChannel.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/js/completeNodeClientWithDataChannel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="307" column="18" lean-forward="false" selection-start-line="307" selection-start-column="18" selection-end-line="307" selection-end-column="18" />
+            <state relative-caret-position="475">
+              <caret line="259" column="30" lean-forward="true" selection-start-line="259" selection-start-column="30" selection-end-line="259" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -169,12 +169,12 @@
       <option name="presentableId" value="Default" />
       <updated>1553095312147</updated>
       <workItem from="1553095313734" duration="9402000" />
-      <workItem from="1553173921546" duration="3284000" />
+      <workItem from="1553173921546" duration="3549000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12686000" />
+    <option name="totallyTimeSpent" value="12951000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="952" y="0" width="975" height="1047" extended-state="0" />
@@ -370,8 +370,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/completeNodeClientWithDataChannel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="307" column="18" lean-forward="false" selection-start-line="307" selection-start-column="18" selection-end-line="307" selection-end-column="18" />
+        <state relative-caret-position="475">
+          <caret line="259" column="30" lean-forward="true" selection-start-line="259" selection-start-column="30" selection-end-line="259" selection-end-column="30" />
           <folding />
         </state>
       </provider>

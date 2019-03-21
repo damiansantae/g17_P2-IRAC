@@ -256,6 +256,7 @@ function sendData() {
     var sent_msg = document.createElement("p");
     sent_msg.innerHTML = "<strong>Tú: </strong>" + data + "";
     parent.appendChild(sent_msg);
+    sendTextarea.value = "";
   trace('Sent data: ' + data);
 }
 
