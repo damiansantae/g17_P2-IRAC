@@ -1,0 +1,43 @@
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+[class*="col-"] {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 49.5%;
+    text-align: center;
+    perspective: 3000px;
+    overflow: auto;
+}
+.col-1{
+
+}
+
+.col-2{
+
+}
+#overlay{
+    opacity: 0.05;
+    z-index: 12;
+    background-color: transparent;
+}
+
+#overlay:hover{
+    opacity: 1.0;
+
+}
+
+@media only screen and (max-width: 1000px) {
+    .col-1{
+        width: 100%;
+    }
+    .col-2{
+        width: 100%;
+    }
+}
