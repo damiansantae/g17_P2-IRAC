@@ -10,7 +10,7 @@ body{
     position: relative;
     float: left;
     height: 100%;
-    width: 49.5%;
+    width: 50%;
     text-align: center;
     perspective: 3000px;
     overflow: auto;
@@ -41,3 +41,5 @@ body{
         width: 100%;
     }
 }
+
+#one > .cont { height:92vh; }
