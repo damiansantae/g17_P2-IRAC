@@ -1,33 +1,22 @@
-
-
-var http = require('http');
-
-var express = require('express'),
-    app = module.exports.app = express();
-
-var server = http.createServer(app);
-
 app.use(express.static( __dirname +'/client'))
 
 //Importamos las rutas
 var routes = require('./routes');
 
-
-//Asignamos al atributo 'port' un valor
-app.set('port', (process.env.PORT || 8080))
-
 //Cargamos las rutas
 app.use('', routes);
 
-// Use socket.io JavaScript library for real-time web applications
-var io = require('socket.io').listen(server);
+const server = express()
+    .use((req, res) => res.sendFile(INDEX))
+.listen(PORT, () => console.log("Listening on ${ PORT }"));
+
+
+const io = socketIO(server);
 
 // Let's start managing connections...
-io.sockets.on('connection', function (socket){
-
-
+io.on('connection', function (socket){
     socket.on('create or join', function (room) { // Handle 'create or join' messages
-        var numClients = io.sockets.adapter.rooms[room]?io.sockets.adapter.rooms[room].length:0;
+        var numClients = io.adapter.rooms[room]?io.adapter.rooms[room].length:0;
 
         console.log('S --> Room ' + room + ' has ' + numClients + ' client(s)');
         console.log('S --> Request to create or join room', room);
@@ -36,7 +25,7 @@ io.sockets.on('connection', function (socket){
             socket.join(room);
             socket.emit('created', room);
         } else if (numClients == 1) { // Second client joining...
-            io.sockets.in(room).emit('join', room);
+            io.in(room).emit('join', room);
             socket.join(room);
             socket.emit('joined', room);
         } else { // max two clients
@@ -60,9 +49,6 @@ io.sockets.on('connection', function (socket){
 
 });
 
-server.listen(app.get('port'), () => {
-    console.log("Servidor ejecutandose en :" + app.get('port'))
-})
 
 module.exports = app;
 
