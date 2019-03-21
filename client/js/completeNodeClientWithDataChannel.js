@@ -81,6 +81,7 @@ var room = prompt('Enter room name:');
 var urlServer = location.origin;
 console.log("socket.io client connecting to server ", urlServer );
 // Connect to signalling server
+//TODO
 var socket = io();
 
 // Send 'Create or join' message to singnalling server
@@ -245,6 +246,11 @@ function sendData() {
   var data = sendTextarea.value;
   if(isInitiator) sendChannel.send(data);
   else receiveChannel.send(data);
+    var parent = receiveTextarea;
+    var sent_msg = document.createElement("p");
+    sent_msg.innerHTML = "<strong>Tú: </strong>" + data + "";
+    parent.appendChild(sent_msg);
+
   trace('Sent data: ' + data);
 }
 
@@ -260,7 +266,10 @@ function gotReceiveChannel(event) {
 
 function handleMessage(event) {
   trace('Received message: ' + event.data);
-  receiveTextarea.value += event.data + '\n';
+    var parent = receiveTextarea;
+    var rcv_msg = document.createElement("p");
+    rcv_msg.innerHTML = "<strong>Remote: </strong>" + event.data + "";
+    parent.appendChild(rcv_msg);
 }
 
 function handleSendChannelStateChange() {
