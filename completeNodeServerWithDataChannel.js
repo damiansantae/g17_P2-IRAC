@@ -8,12 +8,15 @@ server.use(express.static( __dirname +'/client'))
 var routes = require('./routes');
 
 //Cargamos las rutas
-server.use('', routes);
+server.use('', routes)
+
+//Asignamos al atributo 'port' un valor
+server.set('port', (process.env.PORT || 8080));
 
 
 
 server.use((req, res) => res.sendFile(INDEX))
-.listen(PORT, () => console.log("Listening on ${ PORT }"));
+.listen(server.get('port'), () => console.log("Servidor ejecutandose en :" + app.get('port'));
 
 
 const io = socketIO(server);
