@@ -1,13 +1,17 @@
-app.use(express.static( __dirname +'/client'))
+
+const server = express();
+
+server.use(express.static( __dirname +'/client'))
 
 //Importamos las rutas
 var routes = require('./routes');
 
 //Cargamos las rutas
-app.use('', routes);
+server.use('', routes);
 
-const server = express()
-    .use((req, res) => res.sendFile(INDEX))
+
+
+server.use((req, res) => res.sendFile(INDEX))
 .listen(PORT, () => console.log("Listening on ${ PORT }"));
 
 
