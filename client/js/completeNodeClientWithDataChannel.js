@@ -2,7 +2,7 @@
 
 // Clean-up function:
 // collect garbage before unloading browser's window
-window.onbeforeunload = function (e) {
+window.onbeforeunload = function(e){
     hangup();
 }
 
@@ -60,7 +60,7 @@ var pc_config = {
 };
 
 var pc_constraints = {
-    'optional': [{'DtlsSrtpKeyAgreement': true}]
+    'optional': [ {'DtlsSrtpKeyAgreement': true} ]
 };
 
 // Session Description Protocol constraints:
@@ -79,10 +79,9 @@ function trace(text) {
 var room = prompt('Enter room name:');
 
 var urlServer = location.origin;
-console.log("socket.io client connecting to server ", urlServer);
+console.log("socket.io client connecting to server ", urlServer );
 // Connect to signalling server
-//TODO
-var socket = io();
+var socket = io.connect(urlServer);
 
 // Send 'Create or join' message to singnalling server
 if (room !== '') {
@@ -105,10 +104,9 @@ function handleUserMedia(stream) {
     sendMessage('got user media');
 }
 
-function handleUserMediaError(error) {
+function handleUserMediaError(error){
     console.log('navigator.getUserMedia error: ', error);
 }
-
 /////////////////////////////////////////////
 // Server-mediated message exchanging...
 
@@ -117,7 +115,7 @@ function handleUserMediaError(error) {
 
 // Handle 'created' message coming back from server:
 // this peer is the initiator
-socket.on('created', function (room) {
+socket.on('created', function (room){
     console.log('Created room ' + room);
     isInitiator = true;
 
@@ -130,13 +128,13 @@ socket.on('created', function (room) {
 
 // Handle 'full' message coming back from server:
 // this peer arrived too late :-(
-socket.on('full', function (room) {
+socket.on('full', function (room){
     console.log('Room ' + room + ' is full');
 });
 
 // Handle 'join' message coming back from server:
 // another peer is joining the channel
-socket.on('join', function (room) {
+socket.on('join', function (room){
     console.log('Another peer made a request to join room ' + room);
     console.log('This peer is the initiator of room ' + room + '!');
     isChannelReady = true;
@@ -144,7 +142,7 @@ socket.on('join', function (room) {
 
 // Handle 'joined' message coming back from server:
 // this is the second peer joining the channel
-socket.on('joined', function (room) {
+socket.on('joined', function (room){
     console.log('This peer has joined room ' + room);
     isChannelReady = true;
 
@@ -154,12 +152,12 @@ socket.on('joined', function (room) {
 });
 
 // Server-sent log message...
-socket.on('log', function (array) {
+socket.on('log', function (array){
     console.log.apply(console, array);
 });
 
 // Receive message from the other peer via the signalling server
-socket.on('message', function (message) {
+socket.on('message', function (message){
     console.log('Received message:', message);
     if (message.message === 'got user media') {
         checkAndStart();
@@ -172,10 +170,8 @@ socket.on('message', function (message) {
     } else if (message.message.type === 'answer' && isStarted) {
         pc.setRemoteDescription(new RTCSessionDescription(message.message));
     } else if (message.message.type === 'candidate' && isStarted) {
-        var candidate = new RTCIceCandidate({
-            sdpMLineIndex: message.message.label,
-            candidate: message.message.candidate
-        });
+        var candidate = new RTCIceCandidate({sdpMLineIndex:message.message.label,
+            candidate:message.message.candidate});
         pc.addIceCandidate(candidate);
     } else if (message.message === 'bye' && isStarted) {
         handleRemoteHangup();
@@ -185,12 +181,11 @@ socket.on('message', function (message) {
 // 2. Client-->Server
 
 // Send message to the other peer via the signalling server
-function sendMessage(message) {
+function sendMessage(message){
     console.log('Sending message: ', message);
     socket.emit('message', {
         channel: room,
-        message: message
-    });
+        message: message});
 }
 
 ////////////////////////////////////////////////////
@@ -306,8 +301,7 @@ function handleIceCandidate(event) {
             type: 'candidate',
             label: event.candidate.sdpMLineIndex,
             id: event.candidate.sdpMid,
-            candidate: event.candidate.candidate
-        });
+            candidate: event.candidate.candidate});
     } else {
         console.log('End of candidates.');
     }
@@ -351,7 +345,6 @@ function handleRemoteStreamAdded(event) {
 function handleRemoteStreamRemoved(event) {
     console.log('Remote stream removed. Event: ', event);
 }
-
 /////////////////////////////////////////////////////////
 // Clean-up functions...
 
@@ -373,7 +366,7 @@ function stop() {
     if (receiveChannel) receiveChannel.close();
     if (pc) pc.close();
     pc = null;
-    sendButton.disabled = true;
+    sendButton.disabled=true;
 }
 
 ///////////////////////////////////////////
