@@ -248,14 +248,8 @@ function createPeerConnection() {
 // Data channel management
 function sendData() {
     var data = sendTextarea.value;
-    if (isInitiator) sendChannel.send(data);
+    if(isInitiator) sendChannel.send(data);
     else receiveChannel.send(data);
-    var parent = receiveTextarea;
-    var sent_msg = document.createElement("p");
-    sent_msg.innerHTML = "<strong>Tú: </strong>" + data + "";
-    parent.appendChild(sent_msg);
-
-    sendTextarea.value = "";
     trace('Sent data: ' + data);
 }
 
@@ -271,10 +265,7 @@ function gotReceiveChannel(event) {
 
 function handleMessage(event) {
     trace('Received message: ' + event.data);
-    var parent = receiveTextarea;
-    var rcv_msg = document.createElement("p");
-    rcv_msg.innerHTML = "<strong>Remote: </strong>" + event.data + "";
-    parent.appendChild(rcv_msg);
+    receiveTextarea.value += event.data + '\n';
 }
 
 function handleSendChannelStateChange() {
