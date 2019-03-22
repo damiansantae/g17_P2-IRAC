@@ -332,6 +332,7 @@ function createPeerConnection() {
     if (isInitiator) {
         try {
             // Create a reliable data channel
+            console.log('Trying to create data channel');
             sendChannel = pc.createDataChannel("sendDataChannel",
                 {reliable: true});
             trace('Created send data channel');
@@ -343,6 +344,7 @@ function createPeerConnection() {
         sendChannel.onmessage = handleMessage;
         sendChannel.onclose = handleSendChannelStateChange;
     } else { // Joiner
+        console.log('You are a joiner');
         pc.ondatachannel = gotReceiveChannel;
     }
 }
