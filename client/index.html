@@ -160,17 +160,12 @@ else if (navigator.webkitGetUserMedia) {
 }
 
 
-var pc_config = webrtcDetectedBrowser === 'firefox' ?
+var pc_config = webrtcDetectedBrowser ?
     // {'iceServers': [{'urls': 'stun:23.21.150.121'}]} :
     {'iceServers': [{'urls': 'stun:stun.services.mozilla.com'}]} :
     {
         'iceServers': [{'urls': 'stun:stun.l.google.com:19302'}]
     };
-
-
-var pc_constraints = {
-    'optional': [{'DtlsSrtpKeyAgreement': true}]
-};
 
 // Session Description Protocol constraints:
 var sdpConstraints = {};
@@ -317,15 +312,14 @@ function checkAndStart() {
 // Peer Connection management...
 function createPeerConnection() {
     try {
-        pc = new RTCPeerConnection(pc_config, pc_constraints);
+        pc = new RTCPeerConnection(pc_config);
 
         console.log("Calling pc.addStream(localStream)! Initiator: " + isInitiator);
         pc.addStream(localStream);
 
         pc.onicecandidate = handleIceCandidate;
         console.log('Created RTCPeerConnnection with:\n' +
-            '  config: \'' + JSON.stringify(pc_config) + '\';\n' +
-            '  constraints: \'' + JSON.stringify(pc_constraints) + '\'.');
+            '  config: \'' + JSON.stringify(pc_config) + '\';\n');
     } catch (e) {
         console.log('Failed to create PeerConnection, exception: ' + e.message);
         alert('Cannot create RTCPeerConnection object.');
